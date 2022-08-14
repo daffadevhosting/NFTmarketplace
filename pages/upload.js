@@ -14,7 +14,7 @@ import { MARKETPLACE_ADDRESS } from "../const/contractAddresses";
 import { NFT_COLLECTION } from "../const/contractAddresses";
 import { useRouter } from "next/router";
 import { useRef } from "react";
-import styles from "../styles/Theme.module.css";
+import styles from "../styles/utils.module.scss";
 
 const Create = () => {
   // React SDK hooks
