@@ -1,0 +1,109 @@
+$metamask: url('/icons/metamask.svg');
+$walletconnect: url('/icons/walletconnect.svg');
+$coinbase: url('/icons/coinbase.svg');
+$polygon: url('/icons/polygon.png');
+$ftm: url('/icons/ftm.png');
+$avatar: url('/avatar.png');
+
+// Mobile breakpoints
+@mixin mobile {
+    @media (min-width: 320px) and (max-width: 767.98px) {
+      @content;
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+.mobile_only {
+    display: none !important;
+    @include mobile {
+        display: block;
+    }
+}
+
+.desktop_only {
+    display: block;
+    @include mobile {
+        display: none !important;
+    }
+}
+
+.metamask {
+    background: $metamask;
+    display: block;
+    width: 18px;
+    height: 18px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.walletconnect {
+    background: $walletconnect;
+    display: block;
+    width: 18px;
+    height: 18px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.coinbase {
+    background: $coinbase;
+    display: block;
+    width: 18px;
+    height: 18px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.polygon {
+    background: $polygon;
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  font: 14px arial;
+  border-radius: 30%;
+  overflow: hidden;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  -webkit-animation: spin 1s linear infinite; /* Safari */
+  animation: spin 1s linear infinite;
+}
+
+.muter {
+  border: 6px solid rgb(0 0 0 / 10%);
+  border-radius: 50%;
+  border-top: 6px solid rgba(255, 255, 255, 0.3);
+  width: 40px;
+  height: 40px;
+  -webkit-animation: spin 1s linear infinite; /* Safari */
+  animation: spin 1s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
