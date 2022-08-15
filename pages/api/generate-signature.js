@@ -1,5 +1,5 @@
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import { NFT_COLLECTION } from "../../const/contractAddresses";
+import { NFT_COLLECTION } from "../../const/contract";
 
 export default async function generateMintSignature(req, res) {
   // De-construct body from request

@@ -7,23 +7,21 @@ import {
   useNFT,
   ThirdwebNftMedia,
   useAddress,
-  useMetamask,
   useNetworkMismatch,
   useClaimNFT,
 } from "@thirdweb-dev/react";
+import Layout, { siteTitle } from '../components/layout'
 import { BigNumber } from "ethers";
 import { useState } from "react";
-import type { NextPage } from "next";
-import styles from "../styles/Theme.module.css";
+import styles from "../styles/utils.module.scss";
 
 // Put Your Edition Drop Contract address from the dashboard here
 const myEditionDropContractAddress =
   "0x11232C2cd1757C3e4f78dcda318Bdfc6Bc5873A3";
 
-const Home: NextPage = () => {
+export default function editionDrop() {
   const editionDrop = useEditionDrop(myEditionDropContractAddress);
   const address = useAddress();
-  const connectWithMetamask = useMetamask();
   const isOnWrongNetwork = useNetworkMismatch();
   const [, switchNetwork] = useNetwork();
 
@@ -88,6 +86,7 @@ const Home: NextPage = () => {
   }
 
   return (
+<Layout editionDrop>
     <div className={styles.container}>
       <div className={styles.mintInfoContainer}>
         <div className={styles.infoSide}>
@@ -177,7 +176,8 @@ const Home: NextPage = () => {
         className={styles.buttonGapTop}
       />
     </div>
+</Layout>
   );
 };
 
-export default Home;
+;
