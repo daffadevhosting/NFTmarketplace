@@ -26,7 +26,7 @@ export default function editionDrop() {
   const [, switchNetwork] = useNetwork();
 
   // The amount the user claims, updates when they type a value into the input field.
-  const [quantity, setQuantity] = useState<number>(1); // default to 1
+  const [quantity, setQuantity] = useState(1); // default to 1
 
   // Load contract metadata
   const { data: contractMetadata } = useContractMetadata(
@@ -74,14 +74,14 @@ export default function editionDrop() {
             alert(`Successfully minted NFT${quantity > 1 ? "s" : ""}!`);
           },
           onError: (error) => {
-            const e = error as Error;
-            alert((e?.message as string) || "Something went wrong");
+            const e = error;
+            alert((e.message) || "Something went wrong");
           },
         }
       );
     } catch (error) {
-      const e = error as Error;
-      alert((e?.message as string) || "Something went wrong");
+      console.error(error.message || "something went wrong");
+      alert(error.message || "something went wrong");
     }
   }
 
@@ -162,19 +162,10 @@ export default function editionDrop() {
               </button>
             </>
           ) : (
-            <button className={styles.mainButton} onClick={connectWithMetamask}>
-              Connect Wallet
-            </button>
+            <><span className={styles.loading}><p>Connect Wallet</p></span></>
           )}
         </div>
       </div>
-      {/* Powered by thirdweb */}{" "}
-      <img
-        src={`/logo.png`}
-        alt="Thirdweb Logo"
-        width={135}
-        className={styles.buttonGapTop}
-      />
     </div>
 </Layout>
   );
