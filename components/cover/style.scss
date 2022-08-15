@@ -1,0 +1,72 @@
+.cover {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+    background-color: #121222;
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(255,255,255,0.1825105042016807) 100%);
+}
+
+.dropdown_item {
+    display: flex;
+    width: 100%;
+    padding: 0.25rem 1rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.dropdown_item:hover {
+    background-color: #3F51B5;
+    color: #fff;
+}
+
+.metamask {
+    background: $metamask;
+    display: block;
+    width: 18px;
+    height: 18px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.walletconnect {
+    background: $walletconnect;
+    display: block;
+    width: 18px;
+    height: 18px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.coinbase {
+    background: $coinbase;
+    display: block;
+    width: 18px;
+    height: 18px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.ftm {
+    background: $ftm;
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+

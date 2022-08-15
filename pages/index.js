@@ -72,7 +72,7 @@ export default function Home() {
   // Function to mint/claim an NFT
   const mint = async () => {
     if (isOnWrongNetwork) {
-      switchNetwork && switchNetwork(ChainId.Mumbai);
+      switchNetwork && switchNetwork(ChainId.Fantom);
       return;
     }
 
@@ -134,7 +134,7 @@ export default function Home() {
             // Sold out or show the claim button
             isSoldOut ? (
               <div>
-                <h2>Sold Out</h2>
+                <h4>Sold Out</h4>
               </div>
             ) : isNotReady ? (
               <div>

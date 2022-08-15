@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Head from 'next/head'
 import {
   useMarketplace,
   useNetwork,
@@ -11,12 +12,14 @@ import {
 } from "@thirdweb-dev/react";
 import { ChainId, NATIVE_TOKEN_ADDRESS } from "@thirdweb-dev/sdk";
 import Layout, { siteTitle } from '../components/layout'
+import Cover, { title } from '../components/cover/Cover'
 import { MARKETPLACE_ADDRESS } from "../const/contract";
 import { NFT_COLLECTION } from "../const/contract";
 import { useRouter } from "next/router";
 import { useRef } from "react";
 import styles from "../styles/utils.module.scss";
 
+const pageTitle = 'Upload'
 export default function upload() {
   // React SDK hooks
   const address = useAddress();
@@ -55,7 +58,7 @@ export default function upload() {
 
       // Ensure user is on the correct network
       if (networkMismatch) {
-        switchNetwork?.(ChainId.Mumbai);
+        switchNetwork?.(ChainId.Fantom);
         return;
       }
 
@@ -173,15 +176,19 @@ export default function upload() {
 
   return (
 <Layout upload>
+      <Head>
+        <title>{pageTitle} - {siteTitle}</title>
+      </Head>
 <>
           {address ? (
     <form onSubmit={(e) => handleCreateListing(e)}>
       <div className={styles.container}>
         {/* Form Section */}
-        <div className={styles.collectionContainer}>
-          <h5 className={styles.ourCollection}>
-            Upload your NFT to the marketplace:
-          </h5>
+        <div className={styles.collectionContainer} style={{display: 'block'}}>
+        <div className={styles.detailPageContainer} style={{textAlign: 'center'}}>
+            <h5>Upload NFT ke marketplace</h5>
+              <p style={{margin: '0'}}>Setidaknya akan ada 2-3 transaksi untuk upload NFT</p>
+          </div>
 
           {/* Toggle between direct listing and auction listing */}
           <div className={styles.listingTypeContainer}>
@@ -265,15 +272,19 @@ export default function upload() {
           <button
             type="submit"
             className={styles.mainButton}
-            style={{ marginTop: 32, borderStyle: "none" }}
+            style={{ marginTop: 20, marginBottom: 75, borderStyle: "none", float: 'right' }}
           >
-            Mint + List NFT
+            Upload NFT
           </button>
         </div>
       </div>
     </form>
             ) : (
-            <><span className={styles.loading}><p>Connect Wallet</p></span></>
+            <>
+      <Head>
+        <title>{title}</title>
+      </Head>
+        <Cover /></>
           )}
 </>
 </Layout>

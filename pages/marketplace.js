@@ -7,8 +7,9 @@ import {
   ThirdwebNftMedia,
 } from "@thirdweb-dev/react";
 import Image from 'next/image';
-import { RiLoader4Fill } from "react-icons/ri";
-import Layout, { siteTitle } from '../components/layout'
+import Link from 'next/link';
+import { RiLoader4Fill, RiPlayListAddFill } from "react-icons/ri";
+import Layout, { siteTitle } from '../components/layout';
 import { MARKETPLACE_ADDRESS } from "../const/contract";
 import styles from "../styles/utils.module.scss";
 
@@ -107,6 +108,10 @@ export default function Listings() {
         </div>
       </div>
     </div>
+<Link href="/resell_nft">
+<a>
+<RiPlayListAddFill className={styles.resellBtn} />
+</a></Link>
 </Layout>
   );
 }
