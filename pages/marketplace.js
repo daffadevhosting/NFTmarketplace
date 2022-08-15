@@ -80,7 +80,7 @@ export default function Listings() {
                 <a
                   className={styles.nftBox}
                   key={listing.id.toString()}
-                  href={`/collection/${listing.id}`}
+                  href={`/marketplace/${listing.id}`}
                 >
                   <ThirdwebNftMedia
                     metadata={{ ...listing.asset }}
