@@ -10,13 +10,14 @@ import {
   useCreateAuctionListing,
 } from "@thirdweb-dev/react";
 import { ChainId, NATIVE_TOKEN_ADDRESS } from "@thirdweb-dev/sdk";
-import { MARKETPLACE_ADDRESS } from "../const/contractAddresses";
-import { NFT_COLLECTION } from "../const/contractAddresses";
+import Layout, { siteTitle } from '../components/layout'
+import { MARKETPLACE_ADDRESS } from "../const/contract";
+import { NFT_COLLECTION } from "../const/contract";
 import { useRouter } from "next/router";
 import { useRef } from "react";
 import styles from "../styles/utils.module.scss";
 
-const Create = () => {
+export default function upload() {
   // React SDK hooks
   const address = useAddress();
   const networkMismatch = useNetworkMismatch();
@@ -171,13 +172,16 @@ const Create = () => {
   };
 
   return (
+<Layout upload>
+<>
+          {address ? (
     <form onSubmit={(e) => handleCreateListing(e)}>
       <div className={styles.container}>
         {/* Form Section */}
         <div className={styles.collectionContainer}>
-          <h1 className={styles.ourCollection}>
+          <h5 className={styles.ourCollection}>
             Upload your NFT to the marketplace:
-          </h1>
+          </h5>
 
           {/* Toggle between direct listing and auction listing */}
           <div className={styles.listingTypeContainer}>
@@ -268,7 +272,10 @@ const Create = () => {
         </div>
       </div>
     </form>
+            ) : (
+            <><span className={styles.loading}><p>Connect Wallet</p></span></>
+          )}
+</>
+</Layout>
   );
-};
-
-export default Create;
+}

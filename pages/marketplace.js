@@ -9,9 +9,10 @@ import {
 import Image from 'next/image';
 import { RiLoader4Fill } from "react-icons/ri";
 import Layout, { siteTitle } from '../components/layout'
-import { MARKETPLACE_ADDRESS } from "../const/contractAddresses";
+import { MARKETPLACE_ADDRESS } from "../const/contract";
 import styles from "../styles/utils.module.scss";
 
+const pageTitle = 'Collection'
 export default function Listings() {
   const marketplace = useMarketplace(MARKETPLACE_ADDRESS);
   const { data: listings, isLoading } = useActiveListings(marketplace);
@@ -27,7 +28,7 @@ export default function Listings() {
   return (
 <Layout collection>
       <Head>
-        <title>{siteTitle}</title>
+        <title>{pageTitle}-{siteTitle}</title>
       </Head>
     <div className={styles.container}>
       <div className={styles.collectionContainer}>
@@ -39,7 +40,7 @@ export default function Listings() {
             </>
           ) : (
         <div className={styles.loading}>
-            <p>Loading...</p>
+            Loading...
         </div>
           )}
         </div>

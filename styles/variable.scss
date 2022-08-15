@@ -87,6 +87,12 @@ $avatar: url('/avatar.png');
   animation: spin 1s linear infinite;
 }
 
+.spin {
+  -webkit-animation: spin 1s linear infinite; /* Safari */
+  animation: spin 25s linear infinite;
+}
+
+
 .muter {
   border: 6px solid rgb(0 0 0 / 10%);
   border-radius: 50%;

@@ -27,14 +27,14 @@ const Modal = ({ show, onClose, children, title }) => {
       <StyledModal>
         <StyledModalHeader>
 <StyledModalTitle></StyledModalTitle>
-          <a style={{cursor: 'pointer'}} onClick={handleCloseClick}>
+          <a style={{cursor: 'pointer', height: '25px'}} onClick={handleCloseClick}>
             <IoCloseCircleOutline color={'black'}/>
           </a>
         </StyledModalHeader>
         <StyledModalBody>
-            <StyledLoginBtn style={{backgroundColor: '#e1700b', color: 'white'}} onClick={ () => { connectWithMetamask(); handleCloseClick();}}><StyledMetamask/> Metamask</StyledLoginBtn>
-            <StyledLoginBtn style={{backgroundColor: '#9e9e9ebf', color: 'white'}} onClick={ () => { connectWithWalletConnect(); handleCloseClick();}}><StyledWalletConnect/> WalletConnect</StyledLoginBtn>
-            <StyledLoginBtn style={{backgroundColor: '#011793', color: 'white'}} onClick={ () => { connectWithCoinbaseWallet(); handleCloseClick();}}><StyledCoinbase/> CoinBase</StyledLoginBtn>
+            <StyledLoginBtn onClick={ () => { connectWithMetamask(); handleCloseClick();}}><StyledMetamask/> Metamask</StyledLoginBtn>
+            <StyledLoginBtn onClick={ () => { connectWithWalletConnect(); handleCloseClick();}}><StyledWalletConnect/> WalletConnect</StyledLoginBtn>
+            <StyledLoginBtn onClick={ () => { connectWithCoinbaseWallet(); handleCloseClick();}}><StyledCoinbase/> CoinBase</StyledLoginBtn>
         </StyledModalBody>
       </StyledModal>
     </StyledModalOverlay>
@@ -75,8 +75,8 @@ const StyledModal = styled.div`
   background: white;
   color: black;
   width: 100%;
-  max-width: 500px;
-  height: 226px;
+  max-width: 450px;
+  height: 272px;
   border-radius: 5px;
   padding: 15px;
   margin: 20px;
@@ -94,30 +94,32 @@ const StyledModalOverlay = styled.div`
   z-index: 999999;
 `;
 const StyledLoginBtn = styled.div`
+    display: flex;
     padding: 8px;
-    border: 0;
-    border-radius: 3px;
+    border: 1px solid #666;
+    border-radius: 8px;
     font-size: 16px;
     font-weight: 700;
     cursor: pointer;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     grid-gap: 10px;
+    box-shadow: 0px 3px 10px -3px #666;
 `;
 const StyledMetamask = styled.div`
     background: url('/icons/metamask.svg');
     display: block;
-    width: 18px;
-    height: 18px;
+    width: 40px;
+    height: 40px;
     background-size: contain;
     background-repeat: no-repeat;
 `;
 const StyledWalletConnect = styled.div`
     background: url('/icons/walletconnect.svg');
     display: block;
-    width: 18px;
-    height: 18px;
+    width: 40px;
+    height: 40px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -125,8 +127,8 @@ const StyledWalletConnect = styled.div`
 const StyledCoinbase = styled.div`
     background: url('/icons/coinbase.svg');
     display: block;
-    width: 18px;
-    height: 18px;
+    width: 40px;
+    height: 40px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

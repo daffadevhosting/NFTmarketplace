@@ -164,7 +164,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 0px;
     color: #418dff;
     background: linear-gradient(to right, #262936, #262936),
-    linear-gradient(to right, #418dff, #00BCD4);
+    linear-gradient(to right, #418dff, #418dff);
     background-clip: padding-box, border-box;
     background-origin: padding-box, border-box;
 }
@@ -183,6 +183,12 @@ border: 1px solid rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(6.6px);
             -webkit-backdrop-filter: blur(6.6px);
             border: 1px solid rgba(255, 255, 255, 0.3);
+.nftMedia {
+    object-fit: cover !important;
+    object-position: center;
+    width: 100%;
+    height: auto;
+}
             .boxBody {
                 padding: 10px;
                 .priceSection {
@@ -231,6 +237,14 @@ border: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 4px 30px -2px rgb(0 0 0 / 30%);
 @include mobile {padding: 3px 7px}
         }
+.description {
+    display: block;
+    font-size: 18px;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #666;
+    border-radius: 8px;
+}
     .buySection {
         position: fixed;
         bottom: 0;
@@ -239,6 +253,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);
         flex-direction: row;
         grid-gap: 20px;
         align-items: center;
+        justify-content: center;
         z-index: 999;
         max-width: 540px;
         width: 100%;
@@ -252,6 +267,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);
             padding: 6px 10px;
             border-radius: 25px;
             box-shadow: 0px -6px 6px -3px rgb(0 0 0 / 25%);
+@include mobile {width:-webkit-fill-available}
         }
     .auctionSection {
         display: flex;
@@ -302,3 +318,130 @@ border: 1px solid rgba(255, 255, 255, 0.3);
         }
     }
 }
+
+.nftDropSection {
+.imageDrop {
+    margin: auto;
+}
+.mintCompletionArea {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+.quantityContainer {
+    display: flex;
+    align-items: center;
+    grid-gap: 10px;
+}
+.mintBtnArea {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+.quantityControlButton {
+    border: none;
+    cursor: pointer;
+    height: 25px;
+}
+.mainButton {
+  cursor: pointer;
+  display: inline-flex;
+  appearance: none;
+  align-items: center;
+  -webkit-box-align: center;
+  justify-content: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  line-height: 1.2;
+  font-weight: 600;
+  transition-property: background-color, border-color, color, fill, stroke,
+    opacity, box-shadow, transform;
+  transition-duration: 200ms;
+  height: 3rem;
+  min-width: 3rem;
+  font-size: 1rem;
+  background: #2196F3;
+  color: #fff;
+  width: 180px;
+  text-align: center;
+  border-radius: 9999px;
+  border-style: none;
+}
+
+.mainButton:hover {
+  opacity: 0.8;
+}
+}
+}
+
+
+
+.textInput {
+  background-color: rgb(158 158 158 / 18%);
+  border: 2px solid #2196f3;
+  border-radius: 8px;
+  color: #fff;
+  height: 48px;
+  padding: 0 16px;
+  font-size: 1rem;
+  margin-top: 16px;
+  width: 100%;
+}
+
+.imageInput {
+    width: 250px;
+    height: 250px;
+    border: 1px dashed #03a9f4;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F44336;
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+    margin: auto;
+}
+
+.previewImage {
+  height: 500px;
+  width: 500px;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  padding: 8px;
+}
+
+
+.mainButton {
+  cursor: pointer;
+  display: inline-flex;
+  appearance: none;
+  align-items: center;
+  -webkit-box-align: center;
+  justify-content: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  line-height: 1.2;
+  font-weight: 600;
+  transition-property: background-color, border-color, color, fill, stroke,
+    opacity, box-shadow, transform;
+  transition-duration: 200ms;
+  height: 3rem;
+  min-width: 3rem;
+  font-size: 1rem;
+  background: #2196F3;
+  color: #fff;
+  width: 180px;
+  text-align: center;
+  border-radius: 9999px;
+  border-style: none;
+}
+
+.mainButton:hover {
+  opacity: 0.8;
+}
+

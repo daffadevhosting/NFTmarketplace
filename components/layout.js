@@ -17,7 +17,7 @@ import Router from 'next/router'
 const name = 'TESTnet'
 export const siteTitle = 'web3 NFT marketplace project'
 
-export default function Layout({ children, home, collection, listingId, about }) {
+export default function Layout({ children, home }) {
   const [showModal, setShowModal] = useState(false);
 
   const address = useAddress();
@@ -58,6 +58,7 @@ export default function Layout({ children, home, collection, listingId, about })
           <div className={styles.leftHead}>
         {address ? (
           <>
+            <p style={{margin: 0}}>{address.slice(0, 2).concat("*").concat(address.slice(-4))}</p>
             <RiLogoutCircleRLine size={32} onClick={() => disconnectWallet()} />
           </>
         ) : (
@@ -94,29 +95,25 @@ export default function Layout({ children, home, collection, listingId, about })
         )}
       </header>
       <main className={styles.container}>{children}</main>
-      <footer className={styles.footBar}>
+<div>
       {!home ? (
-        <>
-    <Link href="/"><a>
-      <div className={styles.linkTab}>Blog</div>
-    </a></Link>
-    <Link href="/listing"><a>
-      <div className={styles.linkTab}>Collection</div>
-    </a></Link>
-      <div className={styles.linkTab}>About</div>
-         </>
-        ) : (
+        <div>
+        </div> ) : (
           <>
-    <Link href="/"><a>
+      <footer className={styles.footBar}>
+    <Link href="/blog"><a>
       <div className={styles.linkTab}>Blog</div>
     </a></Link>
-    <Link href="/collection"><a>
-      <div className={styles.linkTab}>Collection</div>
+    <Link href="/marketplace"><a>
+      <div className={styles.linkTab}>Marketplace</div>
     </a></Link>
-      <div className={styles.linkTab}>About</div>
+    <Link href="/upload"><a>
+      <div className={styles.linkTab}>Upload</div>
+    </a></Link>
+      </footer>
           </>
       )}
-      </footer>
+</div>
             <Modal onClose={() => setShowModal(false)}
                 show={showModal}></Modal>
     </div>

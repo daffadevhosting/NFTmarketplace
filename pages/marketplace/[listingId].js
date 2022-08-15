@@ -14,9 +14,10 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import Layout, { siteTitle } from '../../components/layout';
 import { RiLoader4Fill } from "react-icons/ri";
-import { MARKETPLACE_ADDRESS } from "../../const/contractAddresses";
+import { MARKETPLACE_ADDRESS } from "../../const/contract";
 import styles from '../../styles/utils.module.scss'
 
+const pageTitle = 'Listings'
 export default function ListingPage() {
   const router = useRouter();
   const { listingId } = router.query;
@@ -100,7 +101,7 @@ export default function ListingPage() {
   return (
 <Layout listingId>
       <Head>
-        <title>{siteTitle}</title>
+        <title>{pageTitle} - {siteTitle}</title>
       </Head>
       <div className={styles.listingContainer}>
         <div className={styles.leftListing}>
@@ -121,19 +122,15 @@ export default function ListingPage() {
             <b>{listing.buyoutCurrencyValuePerToken.displayValue}</b>{" "}
             {listing.buyoutCurrencyValuePerToken.symbol}
           </h2>
-
+<div >
+<span className={styles.description}>{listing.asset.description}</span>
+</div>
           <div className={styles.buySection}
           >
-            <button
-              style={{ borderStyle: "none" }}
-              className={styles.buyBtn}
-              onClick={buyNft}
-            >
-              Buy
-            </button>
-
+{listing?.type === ListingType.Auction ? (
             <div className={styles.auctionSection}
             >
+<span>Pleace Your Bid Offer</span>
               <input
                 type="text"
                 name="bidAmount"
@@ -148,6 +145,17 @@ export default function ListingPage() {
                 Bid
               </button>
             </div>
+) : (
+<>
+            <button
+              style={{ borderStyle: "none" }}
+              className={styles.buyBtn}
+              onClick={buyNft}
+            >
+              Buy
+            </button>
+</>
+)}
           </div>
         </div>
       </div>
