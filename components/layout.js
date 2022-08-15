@@ -14,7 +14,7 @@ import Modal from '../components/utils/Modal'
 import Link from 'next/link'
 import Router from 'next/router'
 
-const name = 'unknownC'
+const name = 'TESTnet'
 export const siteTitle = 'web3 NFT marketplace project'
 
 export default function Layout({ children, home }) {

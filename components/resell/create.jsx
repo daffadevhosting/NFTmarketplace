@@ -39,7 +39,7 @@ export default function Create() {
     try {
       // Ensure user is on the correct network
       if (networkMismatch) {
-        switchNetwork && switchNetwork(250);
+        switchNetwork && switchNetwork(80001);
         return;
       }
 

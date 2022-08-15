@@ -4,7 +4,7 @@ import { NFT_COLLECTION } from "../../const/contract";
 export default async function generateMintSignature(req, res) {
   // De-construct body from request
   let { address, name, description, image } = JSON.parse(req.body);
-  const sdk = ThirdwebSDK.fromPrivateKey(process.env.PRIVATE_KEY, "fantom");
+  const sdk = ThirdwebSDK.fromPrivateKey(process.env.PRIVATE_KEY, "mumbai");
 
   const nftContract = sdk.getNFTCollection(
     NFT_COLLECTION

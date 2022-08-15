@@ -1,7 +1,7 @@
 import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 import '../styles/global.css'
 
-const activeChainId = ChainId.Fantom;
+const activeChainId = ChainId.Mumbai;
 
 export default function App({ Component, pageProps }) {
   return (

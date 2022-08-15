@@ -58,7 +58,7 @@ export default function upload() {
 
       // Ensure user is on the correct network
       if (networkMismatch) {
-        switchNetwork?.(ChainId.Fantom);
+        switchNetwork?.(ChainId.Mumbai);
         return;
       }
 
@@ -218,7 +218,7 @@ export default function upload() {
           {file ? (
             <img
               src={URL.createObjectURL(file)}
-              style={{ cursor: "pointer", maxHeight: 250, borderRadius: 8 }}
+              style={{ cursor: "pointer", maxHeight: 250, borderRadius: 8, margin: 'auto' }}
               onClick={() => setFile(undefined)}
             />
           ) : (
